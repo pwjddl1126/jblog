@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.estsoft.jblog.vo.UserVo;
+import com.estsoft.jblog.service.BlogService;
+import com.estsoft.jblog.service.CategoryService;
 import com.estsoft.jblog.service.UserService;
+import com.estsoft.jblog.vo.BlogVo;
+import com.estsoft.jblog.vo.UserVo;
 
 
 
@@ -21,6 +24,8 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BlogService blogService;
 	
 	@RequestMapping("/login")
 	public String login() {
@@ -52,7 +57,13 @@ public class UserController {
 			return "/user/joinform";
 		}
 		
+			
 		 userService.join(vo);
+		 blogService.create(vo);
+		 
+		 BlogVo blogVo = blogService.get(vo);
+		 System.out.println("in usercontroller blogVo : " + blogVo);
+		 CategoryService.create(blogVo);
 		 return "redirect:/user/joinsuccess";
 	}
 	
