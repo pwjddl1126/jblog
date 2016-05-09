@@ -12,7 +12,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>Spring 이야기</h1>
+			<h1><a href="${pageContext.request.contextPath }/${blogVo.id}">${blogVo.title}</a></h1>
 			<c:import url="/views/include/blogheader.jsp" />
 		</div>
 		<div id="wrapper">
@@ -38,17 +38,16 @@
 
 		<div id="extra">
 			<div class="blog-logo">
-				<img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg">
+				<img src="${pageContext.request.contextPath}/assets/images/${blogVo.logo}">
 			</div>
 		</div>
 
 		<div id="navigation">
 			<h2>카테고리</h2>
 			<ul>
-				<li><a href="">닥치고 스프링</a></li>
-				<li><a href="">스프링 스터디</a></li>
-				<li><a href="">스프링 프로젝트</a></li>
-				<li><a href="">기타</a></li>
+				<c:forEach items="${list }" var="vo" varStatus="status">
+				<li><a href="">${vo.name }</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		

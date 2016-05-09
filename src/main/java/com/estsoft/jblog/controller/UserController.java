@@ -26,6 +26,8 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private BlogService blogService;
+	@Autowired
+	private CategoryService categoryService;
 	
 	@RequestMapping("/login")
 	public String login() {
@@ -63,7 +65,7 @@ public class UserController {
 		 
 		 BlogVo blogVo = blogService.get(vo);
 		 System.out.println("in usercontroller blogVo : " + blogVo);
-		 CategoryService.create(blogVo);
+		 categoryService.create(blogVo);
 		 return "redirect:/user/joinsuccess";
 	}
 	

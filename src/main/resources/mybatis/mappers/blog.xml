@@ -15,4 +15,23 @@
 		]]>
 	</select>
 
+	<select id="selectById" resultType="Long" parameterType="String">
+		<![CDATA[
+		SELECT no FROM blog WHERE id=#{id }
+		]]>
+	</select>
+	
+		<select id="selectAllById" resultType="blogvo" parameterType="String">
+		<![CDATA[
+		SELECT no, id,title, logo  FROM blog WHERE id=#{id }
+		]]>
+	</select>
+
+	<update id="update" parameterType="blogvo">
+		<![CDATA[
+		UPDATE blog set title = #{title}, logo = #{logo} WHERE id=#{id }
+		]]>
+	</update>
+	
+
 </mapper>

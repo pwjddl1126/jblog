@@ -3,12 +3,37 @@
 
 <mapper namespace="category">
 
-	<insert id="insert" parameterType="blogvo">
+	<insert id="create" parameterType="blogvo">
 		<![CDATA[
 		INSERT INTO category VALUES (null, '기본 카테고리', '기본 카테고리입니다.', now(), '0', '${no}' )
 		]]>
 	</insert>
-	
-	
-	
+
+	<insert id="insert" parameterType="categoryvo">
+		<![CDATA[
+		INSERT INTO category VALUES (null, #{name }, #{description }, now(), '0', '${blog_no}' )
+		]]>
+	</insert>
+
+
+
+	<select id="selectList" resultType="categoryvo">
+		<![CDATA[	
+	    	SELECT	 no,
+				    	 name,
+					     description, 
+				  	     reg_date,
+				  	     post_count,
+				  	     blog_no
+	    	  FROM   category 
+		ORDER BY   no
+		]]>
+	</select>
+
+	<delete id="delete" parameterType="Long">
+		DELETE
+		  FROM category 
+		WHERE  no = #{no }
+	</delete> 
+
 </mapper>
