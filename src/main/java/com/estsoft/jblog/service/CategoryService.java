@@ -15,8 +15,8 @@ public class CategoryService {
 	@Autowired
 	private CategoryDao categoryDao;
 	
-	public List<CategoryVo> getCategoryList() {
-		return categoryDao.getList();
+	public List<CategoryVo> getCategoryList(Long no) {
+		return categoryDao.getList(no);
 	}
 	
 	public void create( BlogVo vo ) {

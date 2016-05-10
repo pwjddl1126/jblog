@@ -37,13 +37,14 @@ public class CategoryController {
 	}
 	
 	@RequestMapping("/delete/{id}/{no}")
-	public String delete(@PathVariable("id") Long id,@PathVariable("no") Long categoryNo, Model model ){
+	public String delete(@PathVariable("id") String id,@PathVariable("no") Long categoryNo, Model model ){
 		System.out.println("삭제한다앙");
 		
+		BlogVo blogVo =  blogService.get(id);
 		//no = 카테고리 넘버를 찾아서 딜리
 		categoryService.delete(categoryNo);
 		
-		List<CategoryVo> list = categoryService.getCategoryList();
+		List<CategoryVo> list = categoryService.getCategoryList(blogVo.getNo());
 		model.addAttribute( "list", list );
 		
 		

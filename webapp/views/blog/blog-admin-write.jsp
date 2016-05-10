@@ -29,13 +29,12 @@
 					<li class="selected">글작성</li>
 				</ul>
 				
-				<form action="${pageContext.request.contextPath}/blog/${authUser.id}/write" method="get">
-					<input type="hidden" name="no" value="${vo.no}" />
+				<form action="${pageContext.request.contextPath}/blog/${authUser.id}/write" method="POST">
 					<table class="admin-cat-write">
 						<tr>
 							<td class="t">제목</td>
 							<td><input type="text" size="60" name="title" id="title" ><select
-								name="category">
+								name="category_no">
 
 									<c:forEach items="${list }" var="vo" varStatus="status">
 										<option value="${vo.no}">${vo.name }</option>

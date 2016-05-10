@@ -3,12 +3,41 @@
 
 <mapper namespace="post">
 
-
 	<insert id="insert" parameterType="postvo">
 		<![CDATA[
 		INSERT INTO post VALUES (null, #{category_no }, #{title }, #{content} , now())
 		]]>
 	</insert>
+
+	<select id="selectList" parameterType="Long" resultType="postvo">
+		<![CDATA[	
+	    	SELECT	 no,
+				    	 category_no,
+					     title, 
+				  	     content,
+				  	     reg_date
+	    	  FROM   post
+	    	  WHERE category_no = #{category_no}
+		ORDER BY   no
+		]]>
+	</select>
 	
-	
+	<select id="get" resultType="postvo" parameterType="postvo">
+		<![CDATA[
+			SELECT	no,
+				category_no,
+				title,
+				content,
+				reg_date
+		FROM	post
+		WHERE	no = #{no}]]>
+	</select>
+
+	<delete id="delete" parameterType="postvo">
+		<![CDATA[
+			DELETE FROM post
+		WHERE no = #{no}
+		]]>
+	</delete>
+
 </mapper>

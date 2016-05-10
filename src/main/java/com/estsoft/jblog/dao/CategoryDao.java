@@ -15,8 +15,8 @@ public class CategoryDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<CategoryVo> getList() {
-		List<CategoryVo> list = sqlSession.selectList( "category.selectList" );
+	public List<CategoryVo> getList(Long no) {
+		List<CategoryVo> list = sqlSession.selectList( "category.selectList", no );
 		return list;
 	}
 	

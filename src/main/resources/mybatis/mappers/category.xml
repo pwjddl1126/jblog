@@ -17,7 +17,7 @@
 
 
 
-	<select id="selectList" resultType="categoryvo">
+	<select id="selectList" parameterType="Long" resultType="categoryvo">
 		<![CDATA[	
 	    	SELECT	 no,
 				    	 name,
@@ -26,6 +26,7 @@
 				  	     post_count,
 				  	     blog_no
 	    	  FROM   category 
+	    	  WHERE blog_no = #{no}
 		ORDER BY   no
 		]]>
 	</select>
