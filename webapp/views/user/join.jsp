@@ -9,6 +9,13 @@
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 </head>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
 <body>
 	<div class="center-content">
 		<h1 class="logo">JBlog</h1>
@@ -33,7 +40,7 @@
 				<label class="l-float">서비스 약관에 동의합니다.</label>
 			</fieldset>
 
-			<input type="submit" value="가입하기">
+			<input type="submit" value="가입하기" class="waves-effect waves-light btn">
 
 		</form>
 	</div>

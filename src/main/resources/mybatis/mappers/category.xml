@@ -30,6 +30,13 @@
 		ORDER BY   no
 		]]>
 	</select>
+	
+	<select id="selectDefaultCategoryNo" parameterType="Long" resultType="Long">
+		<![CDATA[
+			SELECT MIN(no) FROM category WHERE blog_no = #{blog_no}
+		]]>
+	</select>
+	
 
 	<delete id="delete" parameterType="Long">
 		DELETE

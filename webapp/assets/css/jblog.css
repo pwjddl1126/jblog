@@ -12,9 +12,9 @@ a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; }
 
 
 
-.center-content	{ width:500px; margin:120px auto 50px auto}
+.center-content	{ width:500px; margin:20px auto 50px auto}
 
-.center-content .logo							{ width:413px; height:300px; background:url(/jblog/assets/images/blog_main.jpg) 0 0 no-repeat; madrqin:20px auto; text-idndent:-100000px; font-size:0 }
+.center-content .logo							{ width:413px; height:300px; background:url(/jblog/assets/images/blog_main.jpg) 0 0 no-repeat; margin:120px auto 10px auto; text-idndent:-100000px; font-size:0 }
 .center-content .menu							{ text-align:center; hedight:20px; margin:0 auto }
 .center-content .menu li						{ display:inline; padding-left:20px }
 .center-content .menu li:first-child			{ margin!-left:70px }
@@ -29,7 +29,7 @@ a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; }
 
 .login-form										{ width:250px; padding:10px; border:1px solid #bbb;	}
 .login-form input, .login-form label			{ display:block }
-.login-form label								{ text-align:left; color:#555; margin-bottom:2px; font-weight:bold; }
+.login-form label								{ display:block; text-align:left; color:#555; margin-bottom:2px; font-weight:bold; }
 .login-form input[type='text']					{ margin-bottom:10px; width:230px; padding:5px }
 
 .join-form										{ text-align:left; width:250px; padding:10px; border:1px solid #bbb; }
@@ -47,7 +47,7 @@ a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; }
 
 
 div#container				{ width:920px; margin:0 auto }
-div#header					{ height:120px; background: #5394CC;  }
+div#header					{ height:120px; background: #ff0080;  }
 div#content					{ float:left; width:720px; min-height:220px }
 div#content.full-screen		{ float:none; width:920px;}
 div#navigation				{ float:right; width:200px }
@@ -55,15 +55,15 @@ div#extra					{ float:right; clear:right; width:200px }
 div#footer					{ clear:both; width:100% }
 
 /* header */
-div#header h1		{ text-align:center; line-height:100px; margin:0; color:#fff }
+div#header h1		{ text-align:center; line-height:100px; margin:0; color:#fff ;font-size:3em;font-weight:bold;}
 div#header ul		{ height:20px } 
-div#header li		{ float:right; margin-right:10px; }
-div#header li a 	{ color:#fff; font-weight:bold; text-decoration:none; }
+div#header li		{ float:right; margin-right:10px;margin-bottom:5px;}
+div#header li a 	{ color:#fff; font-weight:bold; text-decoration:none;}
 
-#header h1 a:hover	 { color:#79B30B; text-decoration:none  }
-#header h1 a:link	 { color:#79B30B; text-decoration:none  }
-#header h1 a:visited { color:#79B30B; text-decoration:none  }
-#header h1 a:active  { color:#79B30B; text-decoration:none  }
+#header h1 a:hover	 { color:#ffffff; text-decoration:none  }
+#header h1 a:link	 { color:#ffffff; text-decoration:none  }
+#header h1 a:visited { color:#ffffff; text-decoration:none  }
+#header h1 a:active  { color:#ffffff; text-decoration:none  }
 
 div#container		{ text-align:left }
 

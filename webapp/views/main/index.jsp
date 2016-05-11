@@ -4,6 +4,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!doctype html>
 <html>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
@@ -16,7 +22,7 @@
 		<form class="search-form">
 			<fieldset>
 				<input type="text" name="keyword" />
-				<input type="submit" value="검색" />
+				<input type="submit" value="검색" class="waves-effect waves-light btn"/>
 			</fieldset>
 			<fieldset>
 				<input type="radio" name="which" value="blog-title"> <label>블로그 제목</label>

@@ -37,6 +37,11 @@ public class PostService {
 		
 		postDao.delete(vo);
 	}
-	
+//	
+//	public PostVo getPost(PostVo postVo){
+//		PostVo vo = new PostVo();
+//		return vo;
+//	}
+//	
 	
 }

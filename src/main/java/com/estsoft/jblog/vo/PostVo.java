@@ -8,6 +8,11 @@ public class PostVo {
 	private String content;
 	private String reg_date;
 	
+//	PostVo(Long category_no, Long no){
+//		this.category_no = category_no;
+//		this.no = no;
+//	}
+	
 	public long getNo() {
 		return no;
 	}

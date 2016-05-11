@@ -21,13 +21,23 @@
 		<div id="wrapper">
 			<div id="content">
 				<div class="blog-content">
-					<h4>${postVo.title }</h4>
+					<h4>
+					
+						<c:if test="${not empty postVo.title }">
+							${postVo.title }
+							
+						</c:if>
+		
+					
+					</h4>
 					<p>
 						${postVo.content }
 					<p>
 						<form action="${pageContext.request.contextPath }/blog/${blogVo.id}/deletepost" method="post" >
 						<input type="hidden" name="no" value="${postVo.no }"/>
+						<c:if test="${not empty postVo.no }">
 						<input type="submit" value="삭제">
+						</c:if>
 						</form>
 				</div>
 				<ul class="blog-list">
@@ -56,7 +66,7 @@
 		
 		<div id="footer">
 			<p>
-				<strong>Spring 이야기</strong> is powered by JBlog (c)2016
+				<strong>넘나 힘든 제이블로그</strong> is powered by 정잉 (c)2016
 			</p>
 		</div>
 	</div>

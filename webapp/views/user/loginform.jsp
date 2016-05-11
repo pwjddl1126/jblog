@@ -5,6 +5,14 @@
 <!doctype html>
 <html>
 <head>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+          
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
@@ -17,9 +25,9 @@
 		<form id="login-form" 
 					name="loginform" 
 					method="post"  action="${pageContext.request.contextPath}/user/login">
-      		<label>아이디</label> <input type="text" name="id">
+      		<label>아이디</label> <input type="text" name="id"> <br>
       		<label>패스워드</label> <input type="text" name="password">
-      		<input type="submit" value="로그인">
+      		<input type="submit" value="로그인" class="waves-effect waves-light btn">
 		</form>
 	</div>
 </body>

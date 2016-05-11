@@ -31,5 +31,9 @@ public class CategoryService {
 	public void delete(Long no){
 		categoryDao.delete(no);
 	}
+	
+	public Long getDefaultCategory(Long blog_no){
+		return categoryDao.getDefaultCategory(blog_no);
+	}
 
 }

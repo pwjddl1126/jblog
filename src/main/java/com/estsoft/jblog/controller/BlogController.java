@@ -31,26 +31,67 @@ public class BlogController {
 	PostService postService;
 
 	@RequestMapping("/{id}")
-	public String blog(@PathVariable("id") String id,
-			@RequestParam(value="category_no", defaultValue="0") Long category_no,
-			@RequestParam(value="post_no",defaultValue="0") Long post_no,Model model) {
+	public String blog(
+			@PathVariable("id") String id,
+			@RequestParam(value = "category_no", defaultValue = "0") Long category_no,
+			@RequestParam(value = "post_no", defaultValue = "0") Long post_no,
+			Model model) {
 
 		BlogVo blogVo = blogService.get(id);
 
 		System.out.println("blog no : " + blogVo.getNo());
 
-		List<CategoryVo> categoryList = categoryService.getCategoryList(blogVo.getNo());
-		List<PostVo> postList = postService.getPostList(category_no);
-		
+		List<CategoryVo> categoryList = categoryService.getCategoryList(blogVo
+				.getNo());
+		// List<PostVo> postList = postService.getPostList(category_no);
+
 		PostVo postVo = postService.get(post_no);
-		
+
+		if (category_no == 0) { // 카테고리 클릭 안 했을 경우: default(미분류)출력, 첫 번째 post출력
+			Long defaultCategoryNo = categoryService.getDefaultCategory(blogVo
+					.getNo());
+
+			List<PostVo> postList = postService.getPostList(defaultCategoryNo); // 해당
+																				// 카테고리의
+																				// 전체
+																				// 글
+																				// 목록
+			model.addAttribute("postList", postList);
+
+			if (!postList.isEmpty()) { // 글이 있는 경우
+				model.addAttribute("title", postList.get(0).getTitle());
+				model.addAttribute("content", postList.get(0).getContent());
+				model.addAttribute("post_no", postList.get(0).getNo());
+			} else {
+				// model.addAttribute("title", "아직 등록된 글이 없습니다.^^");
+				model.addAttribute("content", "아직 등록된 내용이 없습니다.^^");
+			}
+
+		} else { // 카테고리 클릭한 경우
+			List<PostVo> postList = postService.getPostList(category_no);
+			model.addAttribute("postList", postList);
+
+			// 글 클릭 안 한 경우 default
+			if (post_no == 0) {
+				if (!postList.isEmpty()) { // 글이 있는 경우
+					model.addAttribute("title", postList.get(0).getTitle());
+					model.addAttribute("content", postList.get(0).getContent());
+					model.addAttribute("post_no", postList.get(0).getNo());
+				} else {
+					// model.addAttribute("title", "아직 등록된 글이 없습니다.^^");
+					model.addAttribute("content", "아직 등록된 내용이 없습니다.^^");
+				}
+			}
+
+		}
+
 		if (categoryList.size() > 0) {
-			
+
 			model.addAttribute("categoryList", categoryList);
 			model.addAttribute("blogVo", blogVo);
-			model.addAttribute("postList", postList);
+			// model.addAttribute("postList", postList);
 			model.addAttribute("postVo", postVo);
-			
+
 			return "blog/blog-main";
 
 		}
@@ -130,63 +171,30 @@ public class BlogController {
 			@PathVariable("id") String id,
 			@RequestParam(value = "category_no", required = true, defaultValue = "") Long category_no,
 			@RequestParam(value = "title", required = true, defaultValue = "") String title,
-			@RequestParam(value = "content", required = true, defaultValue = "") String content,PostVo postVo) {
+			@RequestParam(value = "content", required = true, defaultValue = "") String content,
+			PostVo postVo) {
 
 		System.out.println("id : " + id);
 		System.out.println("category_no : " + category_no);
 		System.out.println("title : " + title);
 		System.out.println("content : " + content);
 
-		
 		postVo.setCategory_no(category_no);
 		postVo.setTitle(title);
 		postVo.setContent(content);
-		
+
 		postService.write(postVo);
 
 		return "redirect:/" + id;
 	}
 
 	@RequestMapping("blog/{id}/deletepost")
-	public String deletePost(
-			@PathVariable("id") String id,
-			@RequestParam("no") Long no){
-		
+	public String deletePost(@PathVariable("id") String id,
+			@RequestParam("no") Long no) {
+
 		postService.delete(no);
-		
+
 		return "redirect:/" + id;
 	}
-	
-	// @RequestMapping("/blog/{id}/write")
-	// public String write(@PathVariable("id") String id,
-	// @Valid @ModelAttribute PostVo vo,
-	// @RequestParam(value= "no", required=true, defaultValue="") Long
-	// no,BindingResult result,
-	// Model model){
-	//
-	// BlogVo blogVo = blogService.get(id);
-	// System.out.println("id : "+ id);
-	// System.out.println("no : "+ no);
-	// System.out.println("postVo : "+ vo);
-	// System.out.println("Binding result : "+ result);
-	// System.out.println("model : "+ model);
-	//
-	// // Valid 채크
-	// // if (result.hasErrors()) {
-	// // List<CategoryVo> categoryList =
-	// categoryService.getList(blogVo.getBlog_no());
-	// // model.addAttribute("categoryList", categoryList);
-	// // model.addAttribute("postVo", vo);
-	// // model.addAttribute("blogVo", blogVo);
-	// // model.addAttribute(result.getModel());
-	// // return "blog/blog-admin-write";
-	// // }
-	//
-	// // write 부분
-	// // postService.write(vo);
-	//
-	// return "redirect:/blog/"+id;
-	//
-	// }
 
 }
