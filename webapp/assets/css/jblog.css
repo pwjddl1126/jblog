@@ -1,7 +1,7 @@
 
 /* reset */
 *				{ margin:0; padding:0 }
-body			{ font:0.75em "맑은 고딕", 돋움, 굴림; text-align:center; color:#111 }
+body			{ font:0.75em "맑은 고딕", 돋움, 굴림; text-align:center; color:#111  }
 ul, ol			{ list-style-type: none }
 fieldset		{ border:none }
 
@@ -23,14 +23,14 @@ a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; }
 .center-content form,
 .center-content .welcome-message				{ clear:both; margin:50px auto; }
 .search-form 									{ width:100%; }
-.search-form input[name='keyword']				{ width:350px; border:3px solid #3879D9; padding:3px }
-.search-form fieldset							{ margin:10px 0}
+.search-form input[name='keyword']				{ width:350px; border:3px solid #13b79a; padding:3px ;text-align:center}
+.search-form fieldset							{ margin:5px ; margin-left:40px;}
 .search-form input[name='which']				{ display:inline-block; margin-left:10px;}
 
-.login-form										{ width:250px; padding:10px; border:1px solid #bbb;	}
-.login-form input, .login-form label			{ display:block }
+.login-form										{ width:250px; padding:10px; border:1px solid #bbb;text-align:center	}
+.login-form input, .login-form label			{ display:block;text-align:center	 }
 .login-form label								{ display:block; text-align:left; color:#555; margin-bottom:2px; font-weight:bold; }
-.login-form input[type='text']					{ margin-bottom:10px; width:230px; padding:5px }
+.login-form input[type='text']					{ margin-bottom:10px; width:230px; padding:5px ;text-align:center	}
 
 .join-form										{ text-align:left; width:250px; padding:10px; border:1px solid #bbb; }
 .join-form label, .join-form fieldset legend	{ color:#555; margin-bottom:2px; font-weight:bold; }
@@ -44,10 +44,8 @@ a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; }
 .welcome-message span:before					{ content: url(/jblog/assets/images/bul1.gif);}
 .welcome-message span:after						{ content: url(/jblog/assets/images/bul2.gif);}		
 
-
-
 div#container				{ width:920px; margin:0 auto }
-div#header					{ height:120px; background: #ff0080;  }
+div#header					{ height:120px; background: #ff0080; margin-top:10px; }
 div#content					{ float:left; width:720px; min-height:220px }
 div#content.full-screen		{ float:none; width:920px;}
 div#navigation				{ float:right; width:200px }
@@ -55,10 +53,12 @@ div#extra					{ float:right; clear:right; width:200px }
 div#footer					{ clear:both; width:100% }
 
 /* header */
+div#navbar-fixed	{ width:920px}
 div#header h1		{ text-align:center; line-height:100px; margin:0; color:#fff ;font-size:3em;font-weight:bold;}
 div#header ul		{ height:20px } 
 div#header li		{ float:right; margin-right:10px;margin-bottom:5px;}
 div#header li a 	{ color:#fff; font-weight:bold; text-decoration:none;}
+
 
 #header h1 a:hover	 { color:#ffffff; text-decoration:none  }
 #header h1 a:link	 { color:#ffffff; text-decoration:none  }
@@ -69,9 +69,9 @@ div#container		{ text-align:left }
 
 
 /* content */
-div#content	.blog-content	{ padding:10px }
-.blog-content h4			{ font-size:1.3em; color:#9D96D0 }
-.blog-content p				{ margin-top:10px; line-height:150% }
+div#content	.blog-content	{ padding:10px; border:1px solid #bbb; margin-top:10px }
+.blog-content h4			{ font-size:3em; font-weight:bold; color:#9D96D0 ; margin-top:2px}
+.blog-content p				{ font-size:1.5em;margin-top:10px; line-height:150% }
 div#content .blog-list		{ margin:20px 0 10px 10px }
 .blog-list 					{ width:100% }
 .blog-list li				{ height:20px; clear:both; }
@@ -106,9 +106,9 @@ div#content .admin-cat					{ border:none; width:720px; margin-top:30px }
 .admin-cat-write td.s					{ padding:10px 0; text-align:center }
 
 /* navigator */
-div#navigation							{ background-color:#F9F9F9 }
+div#navigation							{ background-color:#F9F9F9 ;text-align:center;}
 div#navigation h2, div#navigation ul	{ margin-left:10px }
-div#navigation h2						{ font-size:1.0em }
+div#navigation h2						{ font-size:1.5em; font-weight:bold; color:#9D96D0}
 div#navigation ul						{ margin-top:5px; margin-bottom:10px }
 div#navigation ul li					{ padding:2px 0 }
 div#navigation ul a						{ font-weight:normal }
@@ -116,7 +116,7 @@ div#navigation ul a						{ font-weight:normal }
 
 /* extra */
 div#extra					{ background-color:#F9F9F9 }
-div#extra .blog-logo		{ margin:0 0 0 10px }
+div#extra .blog-logo		{ margin:5px 0 0 10px ;text-align:center;}
 div#extra .blog-logo img	{ width:150px }
 
 /* footer */

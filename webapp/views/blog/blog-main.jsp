@@ -4,19 +4,35 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!doctype html>
 <html>
+
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 </head>
 <body>
-
-	<div id="container">
 	
-		<div id="header">
-			<h1><a href="${pageContext.request.contextPath }/${blogVo.id}">${blogVo.title}</a></h1>
+		<!--div id="header"-->
+		
+		<div class="navbar-fixed">
+		<nav>
+		<div class="nav-wrapper">
+			<a href="${pageContext.request.contextPath }/${blogVo.id}" class="brand-logo">${blogVo.title}</a>
+			<ul class="right hide-on-med-and-down">
 			<c:import url="/views/include/blogheader.jsp" />
+			</ul>
+			</div>
+			</nav>
 		</div>
+		
+		<div id="container" >
 		
 		<div id="wrapper">
 			<div id="content">
